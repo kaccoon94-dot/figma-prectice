@@ -1,0 +1,60 @@
+/*
+ * 아이콘 컴포넌트 공통 크기 — Figma 아이콘 컴포넌트 표시 크기
+ * 크기는 tokens.css 변수만 사용
+ */
+
+.login-icon,
+.search-icon,
+.menu-icon,
+.more-icon,
+.instagram-icon,
+.youtube-icon,
+.facebook-icon,
+.mobile-menu-more-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--size-24);
+  height: var(--size-24);
+}
+
+.icon-11,
+.icon-12 {
+  display: block;
+  flex-shrink: 0;
+  width: var(--size-44);
+  height: var(--size-44);
+}
+
+.close-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--size-28);
+  height: var(--size-28);
+}
+
+.clock-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--size-40);
+  height: var(--size-40);
+}
+
+.burial-request-icon,
+.ipin-icon,
+.image-zoom-icon,
+.memorial-message-write-icon,
+.volunteer-application-icon,
+.relocation-request-icon,
+.burial-search-icon,
+.usage-guide-icon,
+.verify-icon {
+  display: block;
+  flex-shrink: 0;
+  width: var(--size-20);
+  height: var(--size-20);
+}
+
+/* 흰색 표시 — 흰색 PNG가 없는 아이콘을 진한 배경 위에서 흰색으로 */
+.icon--white {
+  filter: brightness(0) invert(1);
+}

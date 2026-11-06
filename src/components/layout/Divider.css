@@ -1,0 +1,12 @@
+/*
+ * Divider — Figma「Divider」(node 18:7538)
+ * Figma #F2F2F2 → --color-gray-50 (토큰 통일 규칙)
+ */
+
+.divider {
+  width: 100%;
+  height: var(--border-width-1);
+  margin: 0;
+  background-color: var(--color-gray-50);
+  border: 0;
+}

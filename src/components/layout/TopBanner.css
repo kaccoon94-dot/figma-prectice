@@ -1,0 +1,75 @@
+/*
+ * TopBanner — Figma「상단배너」
+ * 간격·크기는 tokens.css 변수만 사용
+ */
+
+.top-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-16);
+  background-color: var(--color-bg-white);
+}
+
+/* 내부 화면용 — Figma 내부 화면 상단배너 높이 48, 위아래 여백 없음 */
+.top-banner--compact {
+  min-height: var(--size-48);
+  padding-block: 0;
+}
+
+/* 데스크탑 상단메뉴 — 모바일에서는 숨김 */
+.top-banner__menu {
+  display: none;
+}
+
+/* 상단오른쪽 — 로그인·통합검색·메뉴 */
+.top-banner__actions {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-16);
+}
+
+/* 아이콘 칸 너비 37px 고정 (Figma) — 긴 글자(통합검색)는 칸 밖으로 가운데 정렬 */
+.top-banner__actions .icon-login {
+  width: var(--size-37);
+}
+
+/* ───────── 데스크탑 (1280px 이상) — Figma 데스크탑_메인 상단배너 ───────── */
+@media (min-width: 1280px) {
+  /* 높이 78, 좌우 16 — 화면이 1280px보다 넓으면 내용은 가운데 1280px 안에 */
+  .top-banner {
+    min-height: var(--size-78);
+    padding: 0 max(var(--space-16), calc((100% - var(--size-1280)) / 2 + var(--space-16)));
+  }
+
+  /* 로고 · 메뉴 · 오른쪽이 같은 간격으로 벌어지도록 (Figma: space-between) */
+  .top-banner__menu {
+    display: block;
+  }
+
+  .top-banner__menu-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-20);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* 메뉴 한 칸 높이 74 — 호버 밑줄이 상단배너 아래쪽에 붙음 */
+  .top-banner__menu-list .desktop-top-menu {
+    height: var(--size-74);
+  }
+
+  .top-banner__actions {
+    flex: 0 0 auto;
+  }
+
+  /* 메뉴 버튼은 데스크탑에 없음 — IconLogin CSS(display)보다 우선하도록 한정 */
+  .top-banner__actions .top-banner__menu-button {
+    display: none;
+  }
+}

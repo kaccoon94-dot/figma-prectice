@@ -1,0 +1,88 @@
+/*
+ * Footer — Figma「풋터」
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.footer {
+  width: 100%;
+  min-height: var(--size-360); /* Figma 풋터 높이 360px */
+  padding: var(--space-16);
+  background-color: var(--color-gray-50);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-base-font-size);
+  font-weight: var(--mobile-base-font-weight);
+  line-height: var(--mobile-base-line-height);
+  letter-spacing: var(--mobile-base-letter-spacing);
+  color: var(--color-text-black);
+}
+
+/* 풋터 내용 */
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-12);
+}
+
+/* 개인정보 등등 — 가로로 이어지다 줄바꿈 */
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-12) var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__link {
+  color: var(--color-text-black);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer__link:hover {
+  text-decoration: underline;
+}
+
+/* 풋터아이콘 — 흰 원 36×36 */
+.footer__sns {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer__sns-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-36);
+  height: var(--size-36);
+  background-color: var(--color-bg-white);
+  border-radius: var(--radius-20);
+}
+
+/* 주소/전화/팩스 */
+.footer__address {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-16);
+  font-style: normal;
+}
+
+.footer__address span {
+  white-space: nowrap;
+}
+
+.footer__copyright {
+  margin: 0;
+}
+
+/* ───────── 데스크탑 (1280px 이상) — 내용은 가운데 1280px 안에 ───────── */
+@media (min-width: 1280px) {
+  .footer {
+    padding-inline: max(var(--space-16), calc((100% - var(--size-1280)) / 2 + var(--space-16)));
+  }
+}

@@ -1,0 +1,149 @@
+/*
+ * MobileMenu — Figma「모바일_메뉴」(node 334:4064) + 「하단메뉴」(node 334:4081)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+/* 화면 전체를 덮는 메뉴 창 (브라우저 기본 <dialog> 모양 지우기) */
+.mobile-menu {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  max-height: none;
+  margin: 0;
+  padding: 0 0 var(--space-16);
+  overflow-y: auto;
+  color: var(--color-text-black);
+  background-color: var(--color-white-900);
+  border: 0;
+}
+
+.mobile-menu[open] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+/* 메뉴가 열려 있는 동안 뒤 화면 스크롤 막기 */
+body:has(.mobile-menu[open]) {
+  overflow: hidden;
+}
+
+/* ───────── 상단배너 — 로고 + 닫기 (높이 59, 좌우 16) ───────── */
+.mobile-menu__top {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--size-59);
+  padding: 0 var(--space-16);
+}
+
+/* 닫기 버튼 — 아이콘 32px, 누르는 영역은 44px 확보 */
+.mobile-menu__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-44);
+  min-height: var(--size-44);
+  padding: 0;
+  margin-right: calc((var(--size-32) - var(--size-44)) / 2);
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.mobile-menu__close-icon {
+  width: var(--size-32);
+  height: var(--size-32);
+}
+
+/* ───────── 검색창 (높이 48, 테두리 #bbb, 좌우 16) ───────── */
+.mobile-menu__search {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  min-height: var(--size-48);
+  margin: 0 var(--space-16);
+  padding: 0 var(--space-4) 0 var(--space-16);
+  background-color: var(--color-text-white);
+  border: var(--border-width-1) solid var(--color-text-secondary);
+  border-radius: var(--radius-4);
+}
+
+/* 모바일/카드_텍스트 (18px) */
+.mobile-menu__search-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0;
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-card-text-font-size);
+  font-weight: var(--mobile-card-text-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+  letter-spacing: var(--mobile-card-text-letter-spacing);
+  color: var(--color-text-black);
+  background-color: transparent;
+  border: 0;
+}
+
+.mobile-menu__search-input::placeholder {
+  color: var(--color-gray-500);
+}
+
+/* 검색창 테두리에 초점 표시 (입력칸 자체 outline 대신) */
+.mobile-menu__search-input:focus-visible {
+  outline: none;
+}
+
+.mobile-menu__search:focus-within {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.mobile-menu__search-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--size-44);
+  min-height: var(--size-44);
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.mobile-menu__search-icon {
+  width: var(--size-32);
+  height: var(--size-32);
+}
+
+/* ───────── 메뉴탭전체 (간격 4, 좌우 16) ───────── */
+.mobile-menu__nav {
+  padding: 0 var(--space-16);
+}
+
+.mobile-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ───────── 하단메뉴 — 펼친 탭 아래 하위 메뉴 (테두리 #333, 위아래 16) ───────── */
+.mobile-menu__submenu {
+  display: flex;
+  flex-direction: column;
+  margin: var(--space-4) 0 0;
+  padding: var(--space-16) 0;
+  overflow: hidden;
+  list-style: none;
+  background-color: var(--color-white-900);
+  border: var(--border-width-1) solid var(--color-text-primary);
+  border-radius: var(--radius-4);
+}
+
+.mobile-menu__submenu[hidden] {
+  display: none;
+}

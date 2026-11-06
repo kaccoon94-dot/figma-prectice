@@ -1,0 +1,68 @@
+/*
+ * SearchResult — Figma「모바일_검색화면 A_1 · A_2 · B_1 · B_2」
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+/* 통합검색 — 글자 32 / 행간 24, 위 12 · 아래 11 · 좌우 16
+ * (Figma 글꼴 Balsamiq Sans는 와이어프레임용 → 프로젝트 폰트) */
+.search-result-page__title {
+  margin: 0;
+  padding: var(--space-12) var(--space-16) var(--space-11);
+  font-size: var(--text-size-32);
+  font-weight: var(--text-weight-400);
+  line-height: var(--size-24);
+  color: var(--color-text-black);
+}
+
+.search-result-page__block {
+  padding: 0 var(--space-16);
+}
+
+/* 결과 개수 — 12px, 개수는 14 SemiBold + 밑줄 */
+.search-result-page__summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-8);
+  margin: 0;
+  font-size: var(--mobile-icon-text-font-size);
+  line-height: var(--mobile-icon-text-line-height);
+  color: var(--color-text-black);
+  white-space: nowrap;
+}
+
+.search-result-page__summary strong {
+  font-size: var(--mobile-base-semibold-font-size);
+  font-weight: var(--mobile-base-semibold-font-weight);
+  text-decoration: underline;
+}
+
+/* 결과 없음 — 모바일/카드_텍스트, 가운데 */
+.search-result-page__empty {
+  margin: 0;
+  padding: 0 var(--space-16);
+  font-size: var(--mobile-card-text-font-size);
+  font-weight: var(--mobile-card-text-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+  color: var(--color-text-black);
+  text-align: center;
+}
+
+/* 결과 목록 — 결과 사이 선, 간격 20 */
+.search-result-page__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-result-page__item {
+  padding: 0 var(--space-16);
+}
+
+/* 메뉴 결과 사이 선은 좌우 16 안쪽, 게시글 결과 사이 선은 화면 끝까지 (Figma) */
+.search-result-page__list--menu .search-result-page__divider {
+  padding: 0 var(--space-16);
+}

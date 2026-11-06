@@ -1,0 +1,40 @@
+/*
+ * Timetable — Figma「오전시간표」「오후시간표」
+ * 색상·간격·폰트는 tokens.css 변수만 사용
+ */
+
+.timetable {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  margin: 0;
+  font-family: var(--font-family-pretendard-gov);
+  color: var(--color-text-black);
+}
+
+/* 한 줄 — 가운데 정렬, 간격 12, 넘치면 다음 줄 */
+.timetable__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-12);
+  padding: 0 var(--space-16);
+}
+
+/* 오전·오후 — 모바일/카드타이틀 */
+.timetable__label {
+  font-size: var(--mobile-card-title-font-size);
+  font-weight: var(--mobile-card-title-font-weight);
+  line-height: var(--mobile-card-title-line-height);
+  white-space: nowrap;
+}
+
+/* 시각 — 모바일/카드_텍스트 */
+.timetable__time {
+  margin: 0;
+  font-size: var(--mobile-card-text-font-size);
+  font-weight: var(--mobile-card-text-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+  white-space: nowrap;
+}

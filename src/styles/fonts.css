@@ -1,0 +1,19 @@
+/*
+ * 웹폰트: Pretendard GOV (로컬 파일 — src/fonts)
+ * Vite가 빌드 시 파일을 번들에 포함하고 경로를 자동 처리함
+ */
+@font-face {
+  font-family: 'Pretendard GOV';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/PretendardGOV-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Pretendard GOV';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../fonts/PretendardGOV-SemiBold.otf') format('opentype');
+}

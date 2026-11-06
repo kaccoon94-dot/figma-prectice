@@ -1,0 +1,63 @@
+/*
+ * NoticeNotification — Figma「공지,알림」(node 797:2384)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+/* 기본 (Property 1=기본) */
+.notice-notification {
+  display: flex;
+  align-items: center;
+  gap: var(--space-16);
+  width: 100%;
+  min-height: var(--size-112);
+  padding: var(--space-8) var(--space-16);
+  font-family: var(--font-family-pretendard-gov);
+  color: var(--color-text-black);
+  text-decoration: none;
+  background-color: var(--color-bg-white);
+  border: var(--border-width-1) solid var(--color-button02);
+  border-radius: var(--radius-4);
+}
+
+/* 텍스트 묶음 (Figma 레이어명 '텍트스') */
+.notice-notification__text {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: var(--space-8);
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+/* 제목 — 모바일/카드타이틀 */
+.notice-notification__title {
+  font-size: var(--mobile-card-title-font-size);
+  font-weight: var(--mobile-card-title-font-weight);
+  line-height: var(--mobile-card-title-line-height);
+  letter-spacing: var(--mobile-card-title-letter-spacing);
+}
+
+/* 본문 — 모바일/기본 (Figma 높이 34px = 2줄) */
+.notice-notification__desc {
+  min-height: var(--size-34);
+  font-size: var(--mobile-base-font-size);
+  font-weight: var(--mobile-base-font-weight);
+  line-height: var(--mobile-base-line-height);
+  letter-spacing: var(--mobile-base-letter-spacing);
+  white-space: pre-line;
+}
+
+/* 이미지 71×71 (Figma 이미지03 자리) */
+.notice-notification__image {
+  flex-shrink: 0;
+  width: var(--size-71);
+  height: var(--size-71);
+  object-fit: cover;
+  background-color: var(--color-text-black);
+}
+
+/* 호버 (Property 1=호버) */
+.notice-notification:hover {
+  color: var(--color-text-black);
+  background-color: var(--color-button02);
+}

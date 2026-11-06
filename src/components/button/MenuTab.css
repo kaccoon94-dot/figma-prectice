@@ -1,0 +1,48 @@
+/*
+ * MenuTab — Figma「메뉴텝」(node 797:1795)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+/* 기본 (Property 1=기본) */
+.menu-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: var(--size-40);
+  padding: var(--space-4) var(--space-32);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-base-semibold-font-size);
+  font-weight: var(--mobile-base-semibold-font-weight);
+  line-height: var(--mobile-base-semibold-line-height);
+  letter-spacing: var(--mobile-base-semibold-letter-spacing);
+  color: var(--color-text-black);
+  text-align: left;
+  text-decoration: none; /* 링크(<a>)로 쓸 때 밑줄 없음 */
+  cursor: pointer;
+  background-color: var(--color-bg-white);
+  border: var(--border-width-1) solid var(--color-button02);
+  border-radius: var(--radius-4);
+}
+
+.menu-tab__label {
+  white-space: nowrap;
+}
+
+/* 온더마우스 (Property 1=온더마우스) */
+.menu-tab:hover {
+  background-color: var(--color-blue-50);
+  border: var(--border-width-0-6) solid var(--color-button01);
+}
+
+/* 클릭 — 펼침 상태 (Property 1=클릭) */
+.menu-tab--expanded,
+.menu-tab--expanded:hover {
+  color: var(--color-text-white);
+  background-color: var(--color-blue-100);
+  border: var(--border-width-1) solid var(--color-button01);
+}
+
+.menu-tab--expanded .menu-tab__icon {
+  transform: rotate(180deg);
+}

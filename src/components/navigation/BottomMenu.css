@@ -1,0 +1,26 @@
+/*
+ * BottomMenu — Figma「하단메뉴」(node 797:1808)
+ * 색상·간격·폰트는 tokens.css 변수만 사용
+ */
+
+/* 기본 (Property 1=기본) */
+.bottom-menu {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--space-15) var(--space-20);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-base-font-size);
+  font-weight: var(--mobile-base-font-weight);
+  line-height: var(--mobile-base-line-height);
+  letter-spacing: var(--mobile-base-letter-spacing);
+  color: var(--color-text-black);
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: var(--color-bg-white);
+}
+
+/* 호버 (Property 1=호버) */
+.bottom-menu:hover {
+  background-color: var(--color-button02);
+}

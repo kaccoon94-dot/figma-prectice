@@ -1,0 +1,51 @@
+/*
+ * SearchTypeTab — Figma「메뉴/게시글」
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ * 바깥 모서리 12px → --radius-4 (토큰 통일 규칙)
+ */
+
+.search-type-tab__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-type-tab__item {
+  flex: 1 0 0;
+}
+
+/* 한 칸 — 모바일/기본 SemiBold, 높이 48 */
+.search-type-tab__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-48);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-base-semibold-font-size);
+  font-weight: var(--mobile-base-semibold-font-weight);
+  line-height: var(--mobile-base-semibold-line-height);
+  color: var(--color-text-black);
+  text-decoration: none;
+  background-color: var(--color-bg-white);
+  border: var(--border-width-1) solid var(--color-primary);
+}
+
+.search-type-tab__item:first-child .search-type-tab__link {
+  border-radius: var(--radius-4) 0 0 var(--radius-4);
+}
+
+.search-type-tab__item:last-child .search-type-tab__link {
+  border-radius: 0 var(--radius-4) var(--radius-4) 0;
+}
+
+.search-type-tab__link:hover {
+  color: var(--color-text-black);
+  background-color: var(--color-button02);
+}
+
+/* 선택된 종류 — primary 배경 + 흰 글자 */
+.search-type-tab__link[aria-current='page'] {
+  color: var(--color-text-white);
+  background-color: var(--color-primary);
+}

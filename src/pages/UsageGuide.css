@@ -1,0 +1,227 @@
+/*
+ * UsageGuide — Figma「모바일_시설/이용」·「모바일_버스운행」·「모바일_버스운행_지도확대」
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+/* 안내탭하단 — 높이 48, 좌우 8, 아래 선 gray-50, 모바일/카드_텍스트 */
+.usage-guide__title {
+  display: flex;
+  align-items: center;
+  min-height: var(--size-48);
+  margin: 0;
+  padding: 0 var(--space-8);
+  font-size: var(--mobile-card-text-font-size);
+  font-weight: var(--mobile-card-text-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+  color: var(--color-text-black);
+  border-bottom: var(--border-width-1) solid var(--color-gray-50);
+}
+
+/* 이미지 — 좌우 16, 너비에 맞춰 비율 유지 */
+.usage-guide__image {
+  padding: 0 var(--space-16);
+}
+
+.usage-guide__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* 시설 안내도 328×184, 노선도 328×255 (Figma) */
+.usage-guide__image--facility img {
+  aspect-ratio: var(--aspect-ratio-facility-map);
+}
+
+.usage-guide__image--bus img {
+  aspect-ratio: var(--aspect-ratio-bus-map);
+}
+
+/* 이용안내전체내용 — 좌우 16, 간격 12 */
+.usage-guide__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: 0 var(--space-16);
+}
+
+/* 섹션 제목 — 모바일/타이틀 */
+.usage-guide__heading {
+  flex: 1 0 0;
+  margin: 0;
+  font-size: var(--mobile-title-font-size);
+  font-weight: var(--mobile-title-font-weight);
+  line-height: var(--mobile-title-line-height);
+  color: var(--color-text-black);
+}
+
+.usage-guide__heading--padded {
+  padding: 0 var(--space-16);
+}
+
+/* 이용안내 본문 — 장소(SemiBold) + 시간 줄, 좌우 8 */
+.usage-guide__hours {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mobile-card-text-line-height);
+  margin: 0;
+  padding: 0 var(--space-8);
+  font-size: var(--mobile-card-text-font-size);
+  line-height: var(--mobile-card-text-line-height);
+  color: var(--color-text-black);
+}
+
+.usage-guide__hours dt {
+  font-weight: var(--mobile-tab-selected-font-weight);
+}
+
+.usage-guide__hours dd {
+  margin: 0;
+  padding-left: var(--space-4);
+}
+
+.usage-guide__divider {
+  padding: 0 var(--space-16);
+}
+
+.usage-guide__section .usage-guide__divider {
+  padding: 0;
+}
+
+/* 시설안내 본문 */
+.usage-guide__facility {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mobile-card-text-line-height);
+  font-size: var(--mobile-card-text-font-size);
+  line-height: var(--mobile-card-text-line-height);
+  color: var(--color-text-black);
+}
+
+/* 안장시설 — 22 SemiBold */
+.usage-guide__facility-group {
+  margin: 0;
+  font-size: var(--mobile-card-title-font-size);
+  font-weight: var(--mobile-card-title-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+}
+
+/* 충혼당 · 위패 봉안실 — 18 SemiBold, 아래 한 줄 띄움 */
+.usage-guide__facility-name {
+  margin: 0 0 var(--mobile-card-text-line-height);
+  font-size: var(--mobile-tab-selected-font-size);
+  font-weight: var(--mobile-tab-selected-font-weight);
+  line-height: var(--mobile-tab-selected-line-height);
+}
+
+.usage-guide__facility-text {
+  margin: 0;
+  white-space: pre-line;
+}
+
+/* 이용안내 + 지도확대 — 여백 16 */
+.usage-guide__bus-head {
+  display: flex;
+  align-items: center;
+  padding: var(--space-16);
+}
+
+/* 지도확대 버튼 — primary 배경, 흰 아이콘·글자 */
+.usage-guide__zoom-button {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  padding: var(--space-4) var(--space-8);
+  font-family: var(--font-family-pretendard-gov);
+  color: var(--color-text-white);
+  background-color: var(--color-primary);
+  border: 0;
+  border-radius: var(--radius-4);
+  cursor: pointer;
+}
+
+/* 글자 14 / 행간 16 — 안쪽 왼쪽 12 · 오른쪽 16 · 위아래 9
+ * (Figma 글꼴 Balsamiq Sans는 와이어프레임용 → 프로젝트 폰트) */
+.usage-guide__zoom-label {
+  padding: var(--space-9) var(--space-16) var(--space-9) var(--space-12);
+  font-size: var(--mobile-base-font-size);
+  line-height: var(--text-size-16);
+}
+
+/* 점 목록 — 18/23, 왼쪽 8 · 오른쪽 16, 점 들여쓰기 27 */
+.usage-guide__bullets {
+  margin: 0;
+  padding: 0 var(--space-16) 0 calc(var(--space-8) + var(--space-27));
+  font-size: var(--mobile-card-text-font-size);
+  line-height: var(--mobile-card-text-line-height);
+  color: var(--color-text-black);
+  list-style: disc;
+}
+
+/* ───────── 지도확대 (화면 전체) ───────── */
+.usage-guide__zoom {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-white-900);
+  border: 0;
+}
+
+.usage-guide__zoom[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 안내탭하단 — 흰 배경, 높이 48, 좌우 8, 제목 + 닫기 */
+.usage-guide__zoom-bar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  min-height: var(--size-48);
+  padding: 0 var(--space-8);
+  background-color: var(--color-text-white);
+  border-bottom: var(--border-width-1) solid var(--color-gray-50);
+}
+
+.usage-guide__zoom-title {
+  margin: 0;
+  font-size: var(--mobile-card-text-font-size);
+  font-weight: var(--mobile-card-text-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+}
+
+.usage-guide__zoom-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-32);
+  height: var(--size-32);
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.usage-guide__zoom-close-icon {
+  width: var(--size-32);
+  height: var(--size-32);
+}
+
+/* 지도 — 원래 크기로 두고 손가락으로 밀어서 이동 (Figma: 화면보다 크게 확대) */
+.usage-guide__zoom-map {
+  flex: 1 0 0;
+  overflow: auto;
+}
+
+.usage-guide__zoom-map img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: auto;
+}

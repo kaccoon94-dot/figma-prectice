@@ -1,0 +1,38 @@
+/*
+ * Login — Figma「모바일_로그인화면」(node 334:4087)
+ * 블록 간격 16 (다른 내부 화면은 20)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.login-page > header {
+  margin: var(--space-16) 0;
+}
+
+.login-page .inner-page__main {
+  gap: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+/* 로그인 방식 선택 — 글자 24 / 행간 24, 아래 선
+ * (Figma 글꼴 Balsamiq Sans는 와이어프레임용 → 프로젝트 폰트, #1A1A1A → --color-black-900) */
+.login-page__heading {
+  padding: 0 var(--space-16);
+}
+
+.login-page__title {
+  margin: 0;
+  font-size: var(--text-size-24);
+  font-weight: var(--text-weight-400);
+  line-height: var(--size-24);
+  color: var(--color-black-900);
+}
+
+/* 본인인증 · 아이핀인증 — 위 28 · 아래 28, 사이 16 */
+.login-page__methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin: 0;
+  padding: var(--space-28) var(--space-16);
+  list-style: none;
+}

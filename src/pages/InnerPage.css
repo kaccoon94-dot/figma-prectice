@@ -1,0 +1,31 @@
+/*
+ * InnerPage — 내부 화면 공통 배치 (Figma 모바일_로그인화면 · 검색화면 · 시설/이용 · 버스운행)
+ * 화면 전체 높이를 채우고, 내용이 짧으면 풋터가 아래에 붙도록 함
+ * 색상·간격은 tokens.css 변수만 사용
+ */
+
+.inner-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  background-color: var(--color-bg-white);
+}
+
+/* 블록 사이 간격 — 화면마다 다름 (로그인 16, 그 외 20) */
+.inner-page__main {
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: column;
+  gap: var(--space-20);
+  padding-bottom: var(--space-20);
+}
+
+/* 위쪽 블록(홈바로가기·상단배너)과 본문 사이 간격 */
+.inner-page > header {
+  margin: var(--space-20) 0;
+}
+
+/* 선 — 좌우 16 */
+.inner-page__divider {
+  padding: 0 var(--space-16);
+}

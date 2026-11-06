@@ -1,0 +1,43 @@
+/*
+ * GuideTab — Figma「안내탭」
+ * 색상·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.guide-tab__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-tab__item {
+  flex: 1 0 0;
+}
+
+/* 한 칸 높이 48 — 모바일/카드_텍스트, 아래 2px 선(배경색과 같음) */
+.guide-tab__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--size-48);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-card-text-font-size);
+  font-weight: var(--mobile-card-text-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+  color: var(--color-text-black);
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--color-button02);
+  border-bottom: var(--border-width-2) solid var(--color-button02);
+}
+
+.guide-tab__link:hover {
+  color: var(--color-primary);
+}
+
+/* 지금 화면 — 모바일/탭 선택 + primary 글자 + 아래 3px primary 선 */
+.guide-tab__link[aria-current='page'] {
+  font-weight: var(--mobile-tab-selected-font-weight);
+  color: var(--color-primary);
+  border-bottom: var(--border-width-3) solid var(--color-primary);
+}

@@ -1,0 +1,59 @@
+/*
+ * SearchResultItem — Figma 통합검색 결과 한 줄
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.search-result-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  width: 100%;
+  font-family: var(--font-family-pretendard-gov);
+  color: var(--color-text-black);
+}
+
+/* 메뉴 결과 제목 — 모바일/카드타이틀 */
+.search-result-item__title {
+  margin: 0;
+  font-size: var(--mobile-card-title-font-size);
+  font-weight: var(--mobile-card-title-font-weight);
+  line-height: var(--mobile-card-title-line-height);
+  letter-spacing: var(--mobile-card-title-letter-spacing);
+}
+
+/* 게시글 결과 제목 — Figma 20 Bold / 행간 24 → SemiBold (Bold 폰트 파일 없음) */
+.search-result-item--post .search-result-item__title {
+  font-size: var(--desktop-text-size-20);
+  font-weight: var(--text-weight-600);
+  line-height: var(--size-24);
+}
+
+.search-result-item__link {
+  color: var(--color-text-black);
+  text-decoration: none;
+}
+
+.search-result-item__link:hover {
+  color: var(--color-text-black);
+  text-decoration: underline;
+}
+
+/* 게시글 요약 — 모바일/기본, 2줄까지 */
+.search-result-item__desc {
+  display: -webkit-box;
+  margin: 0;
+  overflow: hidden;
+  font-size: var(--mobile-base-font-size);
+  font-weight: var(--mobile-base-font-weight);
+  line-height: var(--size-24);
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--line-clamp-search-post);
+  line-clamp: var(--line-clamp-search-post);
+}
+
+/* 검색어 강조 — button01 색 + 밑줄 */
+.search-result-item__mark {
+  color: var(--color-button01);
+  text-decoration: underline;
+  background-color: transparent;
+}

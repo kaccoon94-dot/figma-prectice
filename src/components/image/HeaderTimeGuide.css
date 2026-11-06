@@ -1,0 +1,74 @@
+/*
+ * HeaderTimeGuide — Figma「헤더시간안내」(node 334:5114)
+ * 색상·간격·크기·폰트·그림자는 tokens.css 변수만 사용
+ */
+
+.header-time-guide {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  font-family: var(--font-family-pretendard-gov);
+  color: var(--color-text-white);
+}
+
+/* 시간안내 */
+.header-time-guide__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+/* 제목 — 데스크탑/타이틀 + 글자 그림자 */
+.header-time-guide__title {
+  margin: 0;
+  font-size: var(--desktop-title-font-size);
+  font-weight: var(--desktop-title-font-weight);
+  line-height: var(--desktop-title-line-height);
+  letter-spacing: var(--desktop-title-letter-spacing);
+  color: var(--color-text-white);
+  text-shadow: var(--effects-dropshadow-x-0) var(--effects-dropshow-y-4) var(--effects-blur-4)
+    var(--effects-dropshadow-color);
+}
+
+.header-time-guide__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+  margin: 0;
+}
+
+/* 한 줄 — 데스크탑/상단메뉴(25) + 괄호는 데스크탑/헤더_카드_텍스트(20) */
+.header-time-guide__row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--desktop-top-menu-font-size);
+  font-weight: var(--desktop-top-menu-font-weight);
+  line-height: var(--desktop-top-menu-line-height);
+  white-space: nowrap;
+  filter: drop-shadow(
+    var(--effects-dropshadow-x-0) var(--effects-dropshow-y-4) calc(var(--effects-blur-4) / 2)
+      var(--effects-dropshadow-color)
+  );
+}
+
+.header-time-guide__row dd {
+  margin: 0;
+}
+
+.header-time-guide__row small {
+  font-size: var(--desktop-header-card-text-font-size);
+  font-weight: var(--desktop-header-card-text-font-weight);
+}
+
+/* 현충원 정문 — 하절기/동절기 두 줄 */
+.header-time-guide__row--gate {
+  align-items: flex-start;
+  gap: var(--space-20);
+}
+
+.header-time-guide__times {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}

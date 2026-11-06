@@ -1,0 +1,32 @@
+/*
+ * Breadcrumb — Figma「모바일안내」
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.breadcrumb {
+  width: 100%;
+  padding: 0 var(--space-16);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-icon-text-font-size);
+  font-weight: var(--mobile-icon-text-font-weight);
+  line-height: var(--size-24);
+  color: var(--color-text-black);
+}
+
+.breadcrumb__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  white-space: nowrap;
+}
+
+.breadcrumb__home {
+  color: var(--color-text-black);
+  text-decoration: underline;
+}
+
+.breadcrumb__home:hover {
+  color: var(--color-primary);
+}

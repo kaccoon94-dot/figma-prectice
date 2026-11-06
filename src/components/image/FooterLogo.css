@@ -1,0 +1,28 @@
+/*
+ * FooterLogo — Figma「로고」(node 132:5380)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  margin: 0;
+  color: var(--color-gray-500);
+}
+
+/* 엠블럼 46px */
+.footer-logo__emblem {
+  display: block;
+  width: auto;
+  height: var(--size-46);
+}
+
+/* 글자 — Figma 20.5px → --desktop-text-size-20 (토큰 통일 규칙) */
+.footer-logo__text {
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--desktop-text-size-20);
+  font-weight: var(--text-weight-400);
+  line-height: normal;
+  white-space: nowrap;
+}

@@ -1,0 +1,63 @@
+/*
+ * MediaNewsCard — Figma「미디어소식카드」(node 797:2548)
+ * 색상·간격·크기·폰트·그림자는 tokens.css 변수만 사용
+ */
+
+/* 기본 (Property 1=기본) */
+.media-news-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-8);
+  width: 100%;
+  font-family: var(--font-family-pretendard-gov);
+  color: var(--color-text-black);
+  text-decoration: none;
+}
+
+/* 이미지 — 너비에 맞춰 3:2 비율 */
+.media-news-card__image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: var(--aspect-ratio-media-news);
+  object-fit: cover;
+  background-color: var(--color-white-900);
+}
+
+/* 미디어소식텍스트 */
+.media-news-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+/* 사진 이름 — 모바일/기본 SemiBold, 한 줄 (넘치면 …) */
+.media-news-card__title {
+  overflow: hidden;
+  font-size: var(--mobile-base-semibold-font-size);
+  font-weight: var(--mobile-base-semibold-font-weight);
+  line-height: var(--mobile-base-semibold-line-height);
+  letter-spacing: var(--mobile-base-semibold-letter-spacing);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 날짜 — 모바일/기본 */
+.media-news-card__date {
+  font-size: var(--mobile-base-font-size);
+  font-weight: var(--mobile-base-font-weight);
+  line-height: var(--mobile-base-line-height);
+  letter-spacing: var(--mobile-base-letter-spacing);
+}
+
+/* 호버 (Property 1=호버) — 이미지 아래 그림자 */
+.media-news-card:hover {
+  color: var(--color-text-black);
+}
+
+.media-news-card:hover .media-news-card__image {
+  box-shadow: var(--effects-dropshadow-x-0) var(--effects-dropshow-y-4) var(--effects-blur-4)
+    var(--effects-dropshadow-color);
+}

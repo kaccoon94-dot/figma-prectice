@@ -1,0 +1,227 @@
+/*
+ * Main — Figma「모바일_메인」(334:4481) + 「데스크탑_메인」(334:5034)
+ * 기본 = 모바일, 1280px 이상 = 데스크탑 (데스크탑 시안 프레임 너비)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.main-page {
+  width: 100%;
+  background-color: var(--color-bg-white);
+}
+
+/* 모바일 / 데스크탑 전용 영역 */
+.main-page__desktop-only {
+  display: none;
+}
+
+/* 헤더이미지 + 개방시간 안내 */
+.main-page__hero {
+  position: relative;
+}
+
+/* 컴포넌트 CSS(display: flex)보다 우선하도록 .main-page__hero 안으로 한정 */
+.main-page__hero .main-page__time-guide {
+  display: none; /* 데스크탑에서만 보임 */
+}
+
+/* 헤더메뉴 4개 — 여백 16, 간격 16 */
+.main-page__header-menus {
+  padding: var(--space-16);
+}
+
+.main-page__header-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 선 */
+.main-page__divider {
+  padding: 0 var(--space-16);
+}
+
+/* 섹션 제목 — 모바일/타이틀 */
+.main-page__title {
+  margin: 0;
+  padding: var(--space-16);
+  font-size: var(--mobile-title-font-size);
+  font-weight: var(--mobile-title-font-weight);
+  line-height: var(--mobile-title-line-height);
+  letter-spacing: var(--mobile-title-letter-spacing);
+  color: var(--color-text-black);
+}
+
+/* 공지 · 알림 */
+.main-page__slider {
+  padding: 0 var(--space-16) var(--space-16);
+}
+
+/* 미디어소식 */
+.main-page__media {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding: var(--space-11) 0;
+  background-color: var(--color-button02);
+}
+
+.main-page__title--media {
+  padding: 0 var(--space-16);
+}
+
+.main-page__card-view {
+  min-width: 0; /* 카드 줄이 화면 폭을 넓히지 않도록 (가로 스크롤은 카드뷰 안에서만) */
+  padding: 0 var(--space-26);
+}
+
+/* 추모의글 — 배경 사진 위 타이틀 + 카드 */
+.main-page__memorial {
+  min-height: var(--size-461);
+  padding: var(--space-36) 0 var(--space-44);
+  background-image: var(--memorial-background);
+  background-position: center;
+  background-size: cover;
+}
+
+/* 추모의 글 타이틀 */
+.main-page__memorial-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-13);
+  margin: 0 var(--space-30);
+}
+
+.main-page__memorial-title {
+  margin: 0;
+  /* 아래 여백 = 간격 13 − 선 두께 3 (Figma: 선이 간격 안쪽에 그려짐) */
+  padding: 0 var(--space-16) calc(var(--space-13) - var(--border-width-3));
+  font-size: var(--mobile-title-font-size);
+  font-weight: var(--mobile-title-font-weight);
+  line-height: var(--mobile-title-line-height);
+  letter-spacing: var(--mobile-title-letter-spacing);
+  color: var(--color-text-white);
+  /* Line 1 — 흰 선 3px */
+  border-bottom: var(--border-width-3) solid var(--color-bg-white);
+}
+
+.main-page__memorial-text {
+  margin: 0;
+  padding: 0 var(--space-16);
+  font-size: var(--mobile-card-text-font-size);
+  font-weight: var(--mobile-card-text-font-weight);
+  line-height: var(--mobile-card-text-line-height);
+  letter-spacing: var(--mobile-card-text-letter-spacing);
+  color: var(--color-text-white);
+}
+
+.main-page__memorial-card {
+  margin-top: var(--space-53);
+  padding: 0 var(--space-15);
+}
+
+/* ───────── 데스크탑 (1280px 이상) — Figma 데스크탑_메인 ───────── */
+@media (min-width: 1280px) {
+  .main-page__mobile-only {
+    display: none;
+  }
+
+  .main-page__desktop-only {
+    display: block;
+  }
+
+  /* 헤더이미지 — 1280×718, 넓은 화면에서는 가운데 1280px */
+  .main-page__hero {
+    max-width: var(--size-1280);
+    margin: 0 auto;
+  }
+
+  /* 헤더시간안내 — 이미지 오른쪽 아래 (오른쪽 34, 아래 80) */
+  .main-page__hero .main-page__time-guide {
+    display: flex;
+    position: absolute;
+    right: var(--space-34);
+    bottom: var(--space-80);
+  }
+
+  /* 헤더메뉴 6개 — 3열, 간격 20, 위아래 42 · 좌우 16 */
+  .main-page__header-menus {
+    max-width: var(--size-1280);
+    margin: 0 auto;
+    padding: var(--space-42) var(--space-16);
+  }
+
+  .main-page__header-menu-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-20);
+  }
+
+  /* 선 — 가운데 360 (선 328) */
+  .main-page__divider {
+    max-width: var(--size-360);
+    margin: 0 auto;
+  }
+
+  /* 섹션 제목 — 데스크탑/타이틀, 위아래 16 · 왼쪽 20 */
+  .main-page__title {
+    max-width: var(--size-1280);
+    margin: 0 auto;
+    padding: var(--space-16) var(--space-20);
+    font-size: var(--desktop-title-font-size);
+    font-weight: var(--desktop-title-font-weight);
+    line-height: var(--desktop-title-line-height);
+    letter-spacing: var(--desktop-title-letter-spacing);
+  }
+
+  /* 공지 · 알림 — 카드 줄은 컴포넌트 안에서 가운데 정렬 */
+  .main-page__slider {
+    padding: 0;
+  }
+
+  /* 미디어소식 — 위아래 53, 카드 4장(126×4 + 20×3 = 564) 가운데 */
+  .main-page__media {
+    padding: var(--space-53) 0;
+  }
+
+  .main-page__title--media {
+    width: 100%;
+    padding: 0 var(--space-20);
+  }
+
+  .main-page__card-view {
+    width: 100%;
+    max-width: calc(4 * var(--size-126) + 3 * var(--space-20));
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* 추모의글 — 넓은 화면에서는 내용이 가운데 1280px 안에 */
+  .main-page__memorial {
+    padding: var(--space-38) max(0rem, calc((100% - var(--size-1280)) / 2)) var(--space-44);
+  }
+
+  /* 제목 — 아래 흰 선은 가로 전체 (Figma Line 1 = 1220) */
+  .main-page__memorial-title {
+    font-size: var(--desktop-title-font-size);
+    font-weight: var(--desktop-title-font-weight);
+    line-height: var(--desktop-title-line-height);
+    letter-spacing: var(--desktop-title-letter-spacing);
+  }
+
+  .main-page__memorial-text {
+    font-size: var(--desktop-subtitle-font-size);
+    font-weight: var(--desktop-subtitle-font-weight);
+    line-height: var(--desktop-subtitle-line-height);
+    letter-spacing: var(--desktop-subtitle-letter-spacing);
+  }
+
+  /* 카드 — 오른쪽 30, 너비 298, 타이틀과 간격 8 */
+  .main-page__memorial-card {
+    width: var(--size-298);
+    margin: var(--space-8) var(--space-30) 0 auto;
+    padding: 0;
+  }
+}

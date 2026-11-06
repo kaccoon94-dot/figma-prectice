@@ -1,0 +1,21 @@
+/*
+ * ListOneLine — Figma「List - One Line」
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ * Figma #1A1A1A → --color-black-900 (토큰 통일 규칙)
+ */
+
+.list-one-line {
+  width: 100%;
+}
+
+/* 글자 16 / 행간 24, 여백 위 12 · 아래 11 · 좌우 16 */
+.list-one-line__text {
+  display: block;
+  margin: 0;
+  padding: var(--space-12) var(--space-16) var(--space-11);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--text-size-16);
+  font-weight: var(--text-weight-400);
+  line-height: var(--size-24);
+  color: var(--color-black-900);
+}

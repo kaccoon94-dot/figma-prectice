@@ -1,0 +1,55 @@
+/*
+ * HeaderMenu — Figma「헤더메뉴」(node 797:1751)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+/* 기본 (Property 1=기본) */
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: var(--size-768);
+  min-height: var(--size-48);
+  padding: var(--space-8) 0;
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-base-font-size);
+  font-weight: var(--mobile-base-font-weight);
+  line-height: var(--mobile-base-line-height);
+  letter-spacing: var(--mobile-base-letter-spacing);
+  color: var(--color-text-black);
+  text-align: center;
+  text-decoration: none;
+  background-color: var(--color-bg-white);
+  border: var(--border-width-0-5) solid var(--color-primary);
+  border-radius: var(--radius-4);
+}
+
+.header-menu__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.header-menu__label {
+  white-space: nowrap;
+}
+
+.header-menu__icon--hover {
+  display: none;
+}
+
+/* 호버 (Property 1=호버) */
+.header-menu:hover {
+  color: var(--color-text-white);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.header-menu:hover .header-menu__icon--default {
+  display: none;
+}
+
+.header-menu:hover .header-menu__icon--hover {
+  display: block;
+}

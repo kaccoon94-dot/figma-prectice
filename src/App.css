@@ -1,0 +1,8 @@
+/* App 레이아웃 전용 스타일 */
+.title {
+  margin-bottom: var(--space-16);
+  font-size: var(--mobile-title-font-size);
+  font-weight: var(--mobile-title-font-weight);
+  line-height: var(--mobile-title-line-height);
+  color: var(--color-primary);
+}

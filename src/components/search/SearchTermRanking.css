@@ -1,0 +1,95 @@
+/*
+ * SearchTermRanking — Figma「검색어」(node 349:10579)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.search-term-ranking {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-39);
+  width: 100%;
+  font-family: var(--font-family-pretendard-gov);
+  color: var(--color-text-black);
+}
+
+/* 제목 줄 — 제목 + 일간/주간 */
+.search-term-ranking__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* 제목 — 모바일/카드타이틀 */
+.search-term-ranking__title {
+  margin: 0;
+  font-size: var(--mobile-card-title-font-size);
+  font-weight: var(--mobile-card-title-font-weight);
+  line-height: var(--mobile-card-title-line-height);
+  letter-spacing: var(--mobile-card-title-letter-spacing);
+  white-space: nowrap;
+}
+
+/* 일간/주간 80×24 */
+.search-term-ranking__period {
+  display: flex;
+  flex-shrink: 0;
+  width: var(--size-80);
+  height: var(--size-24);
+  overflow: hidden;
+  background-color: var(--color-bg-white);
+  border: var(--border-width-1) solid var(--color-primary);
+  border-radius: var(--radius-20);
+}
+
+/* 일간·주간 버튼 — 모바일/기본 */
+.search-term-ranking__period-button {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-base-font-size);
+  font-weight: var(--mobile-base-font-weight);
+  line-height: var(--mobile-base-line-height);
+  letter-spacing: var(--mobile-base-letter-spacing);
+  color: var(--color-text-black);
+  background-color: transparent;
+  border: 0;
+  border-radius: var(--radius-20);
+  cursor: pointer;
+}
+
+/* 선택된 기간 — primary 배경 + 흰 글자 */
+.search-term-ranking__period-button[aria-pressed='true'] {
+  color: var(--color-text-white);
+  background-color: var(--color-primary);
+}
+
+/* 검색순위 목록 */
+.search-term-ranking__list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.search-term-ranking__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+/* 순위 숫자 — 데스크탑/헤더_카드_텍스트 */
+.search-term-ranking__rank {
+  font-size: var(--desktop-header-card-text-font-size);
+  font-weight: var(--desktop-header-card-text-font-weight);
+  line-height: var(--desktop-header-card-text-line-height);
+  letter-spacing: var(--desktop-header-card-text-letter-spacing);
+  white-space: nowrap;
+}

@@ -1,0 +1,28 @@
+/*
+ * CardView — Figma「카드뷰」(node 797:2595)
+ * 간격·크기는 tokens.css 변수만 사용
+ */
+
+/* 카드모음 — 가로로 밀어서 보는 줄 */
+.card-view {
+  display: flex;
+  gap: var(--space-20);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Figma에 스크롤바 없음 */
+}
+
+.card-view::-webkit-scrollbar {
+  display: none;
+}
+
+/* 미디어소식카드 한 장 126px */
+.card-view__item {
+  flex-shrink: 0;
+  width: var(--size-126);
+  scroll-snap-align: start;
+}

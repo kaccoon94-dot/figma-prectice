@@ -1,0 +1,34 @@
+/*
+ * Logo — Figma「로고」(node 18:7730)
+ * 색상·간격·크기·폰트는 tokens.css 변수만 사용
+ */
+
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--space-8);
+  min-width: var(--size-154); /* Figma 로고 칸 154px */
+  color: var(--color-gray-500);
+  text-decoration: none;
+}
+
+.logo:hover {
+  color: var(--color-gray-500);
+}
+
+/* 엠블럼 37px */
+.logo__emblem {
+  display: block;
+  width: auto;
+  height: var(--size-37);
+}
+
+/* 글자 15px (Figma: Inter → 프로젝트 폰트 Pretendard GOV 사용) */
+.logo__text {
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--text-size-15);
+  font-weight: var(--text-weight-400);
+  line-height: normal;
+  white-space: nowrap;
+}

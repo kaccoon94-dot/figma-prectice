@@ -1,0 +1,25 @@
+/*
+ * HomeShortcut — Figma「홈바로가기」
+ * 색상·크기·폰트는 tokens.css 변수만 사용
+ * (Figma 글꼴 Balsamiq Sans는 와이어프레임용 → 프로젝트 폰트 사용)
+ */
+
+.home-shortcut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: var(--size-28);
+  font-family: var(--font-family-pretendard-gov);
+  font-size: var(--mobile-icon-text-font-size);
+  font-weight: var(--mobile-icon-text-font-weight);
+  line-height: var(--size-24);
+  color: var(--color-text-black);
+  text-decoration: none;
+  background-color: var(--color-gray-100);
+}
+
+.home-shortcut:hover {
+  color: var(--color-text-black);
+  text-decoration: underline;
+}
