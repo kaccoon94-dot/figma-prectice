@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './NoticeNotification.css'
 import image03 from '../../assets/images/image-03.jpg'
 
@@ -24,13 +25,28 @@ function NoticeNotification({
 }) {
   const classes = ['notice-notification', className].filter(Boolean).join(' ')
 
-  return (
-    <a className={classes} href={href} {...rest}>
+  const content = (
+    <>
       <span className="notice-notification__text">
         <span className="notice-notification__title">{title}</span>
         <span className="notice-notification__desc">{description}</span>
       </span>
       <img className="notice-notification__image" src={image} alt={imageAlt} />
+    </>
+  )
+
+  // 사이트 안 주소('/'로 시작)는 Link로 — 배포 경로(base)가 자동으로 붙음
+  if (href.startsWith('/')) {
+    return (
+      <Link className={classes} to={href} {...rest}>
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <a className={classes} href={href} {...rest}>
+      {content}
     </a>
   )
 }

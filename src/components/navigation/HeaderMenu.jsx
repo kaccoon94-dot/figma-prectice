@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './HeaderMenu.css'
 import BurialRequestIcon from '../icon/BurialRequestIcon.jsx'
 
@@ -14,14 +15,27 @@ import BurialRequestIcon from '../icon/BurialRequestIcon.jsx'
 function HeaderMenu({ children = '안장신청', href = '#', icon: Icon = BurialRequestIcon, className = '', ...rest }) {
   const classes = ['header-menu', className].filter(Boolean).join(' ')
 
+  const content = (
+    <span className="header-menu__inner">
+      {/* 기본 아이콘 / 호버 아이콘(흰색) — CSS로 하나만 보여줌 */}
+      <Icon className="header-menu__icon header-menu__icon--default" />
+      <Icon white className="header-menu__icon header-menu__icon--hover" />
+      <span className="header-menu__label">{children}</span>
+    </span>
+  )
+
+  // 사이트 안 주소('/'로 시작)는 Link로 — 배포 경로(base)가 자동으로 붙음
+  if (href.startsWith('/')) {
+    return (
+      <Link className={classes} to={href} {...rest}>
+        {content}
+      </Link>
+    )
+  }
+
   return (
     <a className={classes} href={href} {...rest}>
-      <span className="header-menu__inner">
-        {/* 기본 아이콘 / 호버 아이콘(흰색) — CSS로 하나만 보여줌 */}
-        <Icon className="header-menu__icon header-menu__icon--default" />
-        <Icon white className="header-menu__icon header-menu__icon--hover" />
-        <span className="header-menu__label">{children}</span>
-      </span>
+      {content}
     </a>
   )
 }

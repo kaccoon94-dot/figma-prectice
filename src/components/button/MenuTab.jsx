@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './MenuTab.css'
 import MobileMenuMoreIcon from '../icon/MobileMenuMoreIcon.jsx'
 
@@ -23,6 +24,15 @@ function MenuTab({ children, expanded = false, showIcon = true, href, onClick, c
       {showIcon && <MobileMenuMoreIcon white={expanded} className="menu-tab__icon" />}
     </>
   )
+
+  // 사이트 안 주소('/'로 시작)는 Link로 — 배포 경로(base)가 자동으로 붙음
+  if (href?.startsWith('/')) {
+    return (
+      <Link className={classes} to={href} onClick={onClick} {...rest}>
+        {content}
+      </Link>
+    )
+  }
 
   if (href) {
     return (

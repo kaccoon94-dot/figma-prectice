@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './DesktopTopMenu.css'
 
 /**
@@ -10,6 +11,15 @@ import './DesktopTopMenu.css'
  */
 function DesktopTopMenu({ children = '현충원소개', href = '#', className = '', ...rest }) {
   const classes = ['desktop-top-menu', className].filter(Boolean).join(' ')
+
+  // 사이트 안 주소('/'로 시작)는 Link로 — 배포 경로(base)가 자동으로 붙음
+  if (href.startsWith('/')) {
+    return (
+      <Link className={classes} to={href} {...rest}>
+        {children}
+      </Link>
+    )
+  }
 
   return (
     <a className={classes} href={href} {...rest}>

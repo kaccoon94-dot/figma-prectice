@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import './MediaNewsCard.css'
 import chiefsOfStaffMemorialTowerVisit from '../../assets/images/chiefs-of-staff-memorial-tower-visit.jpg'
 
@@ -24,14 +25,29 @@ function MediaNewsCard({
 }) {
   const classes = ['media-news-card', className].filter(Boolean).join(' ')
 
-  return (
-    <a className={classes} href={href} {...rest}>
+  const content = (
+    <>
       <img className="media-news-card__image" src={image} alt={imageAlt} />
       {/* 미디어소식텍스트 */}
       <span className="media-news-card__text">
         <span className="media-news-card__title">{title}</span>
         <span className="media-news-card__date">{date}</span>
       </span>
+    </>
+  )
+
+  // 사이트 안 주소('/'로 시작)는 Link로 — 배포 경로(base)가 자동으로 붙음
+  if (href.startsWith('/')) {
+    return (
+      <Link className={classes} to={href} {...rest}>
+        {content}
+      </Link>
+    )
+  }
+
+  return (
+    <a className={classes} href={href} {...rest}>
+      {content}
     </a>
   )
 }
