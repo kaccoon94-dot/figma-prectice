@@ -71,7 +71,6 @@
     border-radius: var(--radius-4);
   }
 
-  .top-banner__menu-item:hover .top-banner__submenu,
   .top-banner__menu-item:focus-within .top-banner__submenu {
     display: flex;
   }
