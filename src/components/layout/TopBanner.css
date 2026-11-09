@@ -76,6 +76,13 @@
     display: flex;
   }
 
+  /* 클릭으로 펼쳤을 때만 — 뒤 화면 전체를 반투명 검은색으로 덮음 (하단메뉴 바깥쪽 그림자로 칠함)
+   * 마우스를 올려서 펼쳤을 때는 배경을 바꾸지 않음 */
+  .top-banner__menu-item--clicked .top-banner__submenu {
+    display: flex;
+    box-shadow: 0 0 0 100vmax var(--color-overlay-dim);
+  }
+
   .top-banner__menu-list {
     display: flex;
     align-items: center;

@@ -43,6 +43,4 @@
   border: var(--border-width-1) solid var(--color-button01);
 }
 
-.menu-tab--expanded .menu-tab__icon {
-  transform: rotate(180deg);
-}
+/* 펼침 상태 화살표 — 흰색 아이콘 그림이 이미 위(▲)를 향하므로 따로 돌리지 않음 */

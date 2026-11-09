@@ -65,6 +65,16 @@ function MobileMenu({ open = false, onClose = () => {}, menus = DEFAULT_MENUS, i
     setExpandedLabel((current) => (current === label ? null : label))
   }
 
+  // 하단메뉴가 펼쳐져 있을 때 하단메뉴 바깥(어두운 화면 어디든)을 누르면 하단메뉴만 접음
+  // — 그 누름은 뒤에 있는 버튼·링크에 전달하지 않음 (어두운 배경을 눌렀을 뿐이므로)
+  const handleOutsideClick = (event) => {
+    if (!expandedLabel) return
+    if (event.target.closest('.mobile-menu__submenu')) return
+    event.preventDefault()
+    event.stopPropagation()
+    setExpandedLabel(null)
+  }
+
   // 검색하면 메뉴를 닫고 통합검색 결과(/search)로 이동
   const handleSearchSubmit = (event) => {
     event.preventDefault()
@@ -75,7 +85,7 @@ function MobileMenu({ open = false, onClose = () => {}, menus = DEFAULT_MENUS, i
   }
 
   return (
-    <dialog ref={dialogRef} id={id} className={classes} aria-label="전체 메뉴" onClose={onClose}>
+    <dialog ref={dialogRef} id={id} className={classes} aria-label="전체 메뉴" onClose={onClose} onClickCapture={handleOutsideClick}>
       {/* 상단배너 — 로고 + 닫기 */}
       <div className="mobile-menu__top">
         <Logo onClick={onClose} />

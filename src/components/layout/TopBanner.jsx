@@ -1,4 +1,4 @@
-import { useId, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import './TopBanner.css'
 import MobileMenu from '../navigation/MobileMenu.jsx'
 import SearchOverlay from './SearchOverlay.jsx'
@@ -63,6 +63,18 @@ function TopBanner({
   const internalMenuId = useId()
   const menuId = externalMenuId ?? internalMenuId
   const searchId = useId()
+  // 클릭으로 펼친 하단메뉴 (이때만 뒤 화면을 어둡게 — 마우스 호버로 펼칠 때는 어둡게 하지 않음)
+  const [clickedLabel, setClickedLabel] = useState(null)
+
+  // 클릭으로 펼친 상태에서 그 메뉴 칸 바깥을 누르면 닫음
+  useEffect(() => {
+    if (!clickedLabel) return
+    const handleOutside = (event) => {
+      if (!event.target.closest('.top-banner__menu-item--clicked')) setClickedLabel(null)
+    }
+    document.addEventListener('click', handleOutside)
+    return () => document.removeEventListener('click', handleOutside)
+  }, [clickedLabel])
   const classes = ['top-banner', compact ? 'top-banner--compact' : '', className].filter(Boolean).join(' ')
 
   return (
@@ -73,8 +85,24 @@ function TopBanner({
       <nav className="top-banner__menu" aria-label="주메뉴">
         <ul className="top-banner__menu-list">
           {menus.map(({ label, href, items = [] }) => (
-            <li key={label} className="top-banner__menu-item">
-              <DesktopTopMenu href={href}>{label}</DesktopTopMenu>
+            <li
+              key={label}
+              className={['top-banner__menu-item', clickedLabel === label ? 'top-banner__menu-item--clicked' : ''].filter(Boolean).join(' ')}
+            >
+              <DesktopTopMenu
+                href={href}
+                onClick={
+                  items.length > 0
+                    ? (event) => {
+                        // 하단메뉴가 있는 칸은 클릭하면 이동 대신 하단메뉴를 펼치고/접음
+                        event.preventDefault()
+                        setClickedLabel((current) => (current === label ? null : label))
+                      }
+                    : undefined
+                }
+              >
+                {label}
+              </DesktopTopMenu>
               {items.length > 0 && (
                 <ul className="top-banner__submenu" aria-label={`${label} 하위 메뉴`}>
                   {items.map((item) => (
