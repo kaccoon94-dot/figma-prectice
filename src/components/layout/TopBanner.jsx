@@ -5,12 +5,24 @@ import SearchOverlay from './SearchOverlay.jsx'
 import Logo from '../image/Logo.jsx'
 import IconLogin from '../navigation/IconLogin.jsx'
 import DesktopTopMenu from '../navigation/DesktopTopMenu.jsx'
+import BottomMenu from '../navigation/BottomMenu.jsx'
 import SearchIcon from '../icon/SearchIcon.jsx'
 import MenuIcon from '../icon/MenuIcon.jsx'
 
-/* Figma 데스크탑_메인「데스크탑 상단메뉴」7개 — 주소는 실제 페이지가 생기면 바꿉니다 */
+/* Figma 데스크탑_메인「데스크탑 상단메뉴」7개 — 주소는 실제 페이지가 생기면 바꿉니다
+ * items: 마우스를 올리거나 Tab으로 들어가면 펼쳐지는 Figma「데스크탑_하단메뉴」(334:5028) — '현충원소개'만 있음 */
 const DEFAULT_MENUS = [
-  { label: '현충원소개', href: '#' },
+  {
+    label: '현충원소개',
+    href: '#',
+    items: [
+      { label: '인사말', href: '#' },
+      { label: '역사, 연혁', href: '#' },
+      { label: '조직, 업무', href: '#' },
+      { label: '찾아오시는 길, VR 지도 안내', href: '#' },
+      { label: '시설 및 이용안내, 버스 운행 안내', href: '/guide' },
+    ],
+  },
   { label: '알림마당', href: '#' },
   { label: '안장자찾기', href: '#' },
   { label: '안장신청', href: '#' },
@@ -21,14 +33,15 @@ const DEFAULT_MENUS = [
 
 /**
  * TopBanner — Figma「상단배너」(모바일·데스크탑 화면 공통 프레임)
- * 사용 컴포넌트: Logo(로고), IconLogin(아이콘), DesktopTopMenu(데스크탑상단메뉴)
+ * 사용 컴포넌트: Logo(로고), IconLogin(아이콘), DesktopTopMenu(데스크탑상단메뉴), BottomMenu(하단메뉴)
  *
  * - 모바일: 로고 + 로그인 · 통합검색 · 메뉴
  * - 데스크탑(1280px 이상): 로고 + 가로 메뉴 7개 + 로그인 · 통합검색 (메뉴 버튼 없음)
+ *   하위 메뉴(items)가 있는 칸에 마우스를 올리거나 Tab으로 들어가면 아래에 하단메뉴가 펼쳐짐
  *
  * 통합검색 · 메뉴 버튼은 SearchOverlay(모바일_검색화면) · MobileMenu(모바일_메뉴)를 엽니다.
  *
- * @param {Array<{label, href}>} menus  데스크탑 가로 메뉴
+ * @param {Array<{label, href, items?}>} menus  데스크탑 가로 메뉴 (items: 하단메뉴)
  * @param {string} loginHref       로그인 페이지 주소 (기본 '/login')
  * @param {boolean} showLogin      로그인 버튼 표시 (로그인 화면에서는 false)
  * @param {boolean} compact        내부 화면용 낮은 높이 (Figma 내부 화면 상단배너 48px)
@@ -59,9 +72,18 @@ function TopBanner({
       {/* 데스크탑 상단메뉴 */}
       <nav className="top-banner__menu" aria-label="주메뉴">
         <ul className="top-banner__menu-list">
-          {menus.map(({ label, href }) => (
-            <li key={label}>
+          {menus.map(({ label, href, items = [] }) => (
+            <li key={label} className="top-banner__menu-item">
               <DesktopTopMenu href={href}>{label}</DesktopTopMenu>
+              {items.length > 0 && (
+                <ul className="top-banner__submenu" aria-label={`${label} 하위 메뉴`}>
+                  {items.map((item) => (
+                    <li key={item.label}>
+                      <BottomMenu href={item.href}>{item.label}</BottomMenu>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
         </ul>

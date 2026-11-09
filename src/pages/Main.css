@@ -38,6 +38,11 @@
   list-style: none;
 }
 
+/* 버튼은 최대 768px — 화면이 더 넓어도 왼쪽에 붙지 않고 가운데에 오도록 */
+.main-page__header-menu-list .header-menu {
+  margin-inline: auto;
+}
+
 /* 선 */
 .main-page__divider {
   padding: 0 var(--space-16);

@@ -30,7 +30,7 @@ const MOBILE_HEADER_MENUS = [
   { label: '안장신청', icon: BurialRequestIcon, href: '#' },
   { label: '이장신청', icon: RelocationRequestIcon, href: '#' },
   { label: '안장자찾기', icon: BurialSearchIcon, href: '#' },
-  { label: '이용안내', icon: UsageGuideIcon, href: '#' },
+  { label: '이용안내', icon: UsageGuideIcon, href: '/guide' },
 ]
 const DESKTOP_HEADER_MENUS = [
   { label: '안장안내', icon: BurialRequestIcon, href: '#' },
@@ -38,7 +38,7 @@ const DESKTOP_HEADER_MENUS = [
   { label: '안장자찾기', icon: BurialSearchIcon, href: '#' },
   { label: '참배추모', icon: MemorialMessageWriteIcon, href: '#' },
   { label: '봉사신청', icon: VolunteerApplicationIcon, href: '#' },
-  { label: '이용안내', icon: UsageGuideIcon, href: '#' },
+  { label: '이용안내', icon: UsageGuideIcon, href: '/guide' },
 ]
 
 /* 데스크탑 공지·알림 카드 3장 — Figma 데스크탑_메인 내용 그대로 */

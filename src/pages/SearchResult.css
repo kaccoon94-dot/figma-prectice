@@ -66,3 +66,27 @@
 .search-result-page__list--menu .search-result-page__divider {
   padding: 0 var(--space-16);
 }
+
+/* ───────── 데스크탑 (1280px 이상) — Figma「데스크탑_검색화면 A_1 · A_2 · B_1 · B_2」 ───────── */
+@media (min-width: 1280px) {
+  /* 통합검색 — 좌우 20 */
+  .search-result-page__title {
+    padding-inline: var(--space-20);
+  }
+
+  /* 메뉴/게시글 · 검색창 · 결과 — 가운데 최대 720 */
+  .search-result-page__block,
+  .search-result-page__status,
+  .search-result-page__list {
+    width: 100%;
+    max-width: var(--size-720);
+    margin: 0 auto;
+  }
+
+  /* 메뉴 결과 사이 선 — 가운데 360 (선 328) */
+  .search-result-page__list--menu .search-result-page__divider {
+    width: 100%;
+    max-width: var(--size-360);
+    margin: 0 auto;
+  }
+}

@@ -15,11 +15,12 @@ const LINKS = [
   { label: '찾아오시는길', href: '#' },
 ]
 
-/* Figma「풋터아이콘」— 인별 / 유튭 / 페북 */
+/* Figma「풋터아이콘」— 인별 / 유튭 / 페북
+ * newTab: 새 탭으로 열기 (스크린리더에는 '새 창'으로 안내) */
 const SNS = [
-  { label: '인스타그램', href: '#', Icon: InstagramIcon },
-  { label: '유튜브', href: '#', Icon: YoutubeIcon },
-  { label: '페이스북', href: '#', Icon: FacebookIcon },
+  { label: '인스타그램', href: 'https://www.instagram.com/daejeonnationalcemetery/', Icon: InstagramIcon, newTab: true },
+  { label: '유튜브', href: 'https://www.youtube.com/@%EA%B5%AD%EB%A6%BD%EB%8C%80%EC%A0%84%ED%98%84%EC%B6%A9%EC%9B%90', Icon: YoutubeIcon, newTab: true },
+  { label: '페이스북', href: 'https://www.facebook.com/mpvadnc/photos?locale=ko_KR', Icon: FacebookIcon, newTab: true },
 ]
 
 /**
@@ -45,9 +46,14 @@ function Footer({ className = '', ...rest }) {
         </ul>
 
         <ul className="footer__sns">
-          {SNS.map(({ label, href, Icon }) => (
+          {SNS.map(({ label, href, Icon, newTab }) => (
             <li key={label}>
-              <a className="footer__sns-link" href={href} aria-label={label}>
+              <a
+                className="footer__sns-link"
+                href={href}
+                aria-label={newTab ? `${label} (새 창)` : label}
+                {...(newTab && { target: '_blank', rel: 'noopener noreferrer' })}
+              >
                 <Icon />
               </a>
             </li>

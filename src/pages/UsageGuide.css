@@ -217,6 +217,14 @@
 .usage-guide__zoom-map {
   flex: 1 0 0;
   overflow: auto;
+  /* 끌어서 이동 — 손 모양 커서, 브라우저 기본 터치 스크롤 대신 직접 이동 */
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.usage-guide__zoom-map:active {
+  cursor: grabbing;
 }
 
 .usage-guide__zoom-map img {
@@ -224,4 +232,36 @@
   width: auto;
   max-width: none;
   height: auto;
+}
+
+/* ───────── 데스크탑 (1280px 이상) — Figma「데스크탑_시설/이용」(334:4965) ·「데스크탑_버스운행」(334:4875) ·「데스크탑_버스운행_지도확대」(334:4601) ───────── */
+@media (min-width: 1280px) {
+  /* 안내탭하단 — 좌우 16 */
+  .usage-guide__title {
+    padding: 0 var(--space-16);
+  }
+
+  /* 이미지 — 가운데 최대 800 (좌우 16 포함) */
+  .usage-guide__image {
+    width: 100%;
+    max-width: var(--size-800);
+    margin: 0 auto;
+  }
+
+  .usage-guide__image--facility img {
+    aspect-ratio: var(--aspect-ratio-facility-map-desktop);
+  }
+
+  .usage-guide__image--bus img {
+    aspect-ratio: var(--aspect-ratio-bus-map-desktop);
+  }
+
+  /* 지도확대 — 제목 줄 좌우 16, 지도는 2096px로 크게 */
+  .usage-guide__zoom-bar {
+    padding: 0 var(--space-16);
+  }
+
+  .usage-guide__zoom-map img {
+    width: var(--size-2096);
+  }
 }

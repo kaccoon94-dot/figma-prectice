@@ -104,14 +104,46 @@ function FacilityContent() {
 
 function BusContent() {
   const dialogRef = useRef(null)
+  const mapRef = useRef(null)
+  const dragRef = useRef(null)
   const [zoomOpen, setZoomOpen] = useState(false)
+
+  /* 지도를 가운데로 — 지도 영역을 가로·세로 가운데까지 스크롤 */
+  const centerMap = () => {
+    const map = mapRef.current
+    if (!map) return
+    map.scrollLeft = (map.scrollWidth - map.clientWidth) / 2
+    map.scrollTop = (map.scrollHeight - map.clientHeight) / 2
+  }
 
   useEffect(() => {
     const dialog = dialogRef.current
     if (!dialog) return
-    if (zoomOpen && !dialog.open) dialog.showModal()
+    if (zoomOpen && !dialog.open) {
+      dialog.showModal()
+      centerMap()
+    }
     if (!zoomOpen && dialog.open) dialog.close()
   }, [zoomOpen])
+
+  /* 지도 끌어서 이동 — 마우스(클릭)·손가락(터치) 모두 같은 방식 */
+  const handlePointerDown = (e) => {
+    const map = mapRef.current
+    dragRef.current = { x: e.clientX, y: e.clientY, left: map.scrollLeft, top: map.scrollTop }
+    map.setPointerCapture(e.pointerId)
+  }
+
+  const handlePointerMove = (e) => {
+    const drag = dragRef.current
+    if (!drag) return
+    const map = mapRef.current
+    map.scrollLeft = drag.left - (e.clientX - drag.x)
+    map.scrollTop = drag.top - (e.clientY - drag.y)
+  }
+
+  const handlePointerUp = () => {
+    dragRef.current = null
+  }
 
   return (
     <>
@@ -164,8 +196,16 @@ function BusContent() {
             <CloseIcon className="usage-guide__zoom-close-icon" />
           </button>
         </div>
-        <div className="usage-guide__zoom-map">
-          <img src={busRouteMap} alt="보훈모시미 셔틀버스 노선도 확대" />
+        <div
+          ref={mapRef}
+          className="usage-guide__zoom-map"
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={handlePointerUp}
+          onPointerCancel={handlePointerUp}
+        >
+          {/* 이미지가 늦게 불러와져도 다 그려진 뒤 다시 가운데로 */}
+          <img src={busRouteMap} alt="보훈모시미 셔틀버스 노선도 확대" draggable={false} onLoad={centerMap} />
         </div>
       </dialog>
     </>

@@ -44,6 +44,11 @@
   display: none;
 }
 
+/* 목록이 비어 있으면 눌러도 빈 여백이 생기지 않도록 (막대 크기 유지) */
+.related-sites__list:empty {
+  display: none;
+}
+
 /* ───────── 데스크탑 (1280px 이상) — 내용은 가운데 1280px 안에 ───────── */
 @media (min-width: 1280px) {
   .related-sites__button,

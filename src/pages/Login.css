@@ -36,3 +36,30 @@
   padding: var(--space-28) var(--space-16);
   list-style: none;
 }
+
+/* ───────── 데스크탑 (1280px 이상) — Figma「데스크탑_로그인화면」(334:4547) ───────── */
+@media (min-width: 1280px) {
+  /* 선이 상단배너 위로 올라감: 선 → (16) → 상단배너 → (16) → 현재 위치 */
+  .login-page > header {
+    margin: 0 0 var(--space-16);
+  }
+
+  .login-page > header::before {
+    display: block;
+    height: var(--border-width-1);
+    margin: 0 var(--space-16) var(--space-16);
+    background-color: var(--color-gray-50);
+    content: '';
+  }
+
+  .login-page .inner-page__divider {
+    display: none;
+  }
+
+  /* 본인인증 · 아이핀인증 — 가운데 최대 720 */
+  .login-page__methods {
+    width: 100%;
+    max-width: var(--size-720);
+    margin: 0 auto;
+  }
+}

@@ -61,3 +61,92 @@
   margin: 0 auto;
   padding-top: var(--space-40);
 }
+
+/* 내가 찾은 검색어 — 모바일 시안에는 없어서 숨김 */
+.search-overlay__recent {
+  display: none;
+}
+
+/* ───────── 데스크탑 (1280px 이상) — Figma「데스크탑_검색화면」(334:4863) ───────── */
+@media (min-width: 1280px) {
+  /* 블록 사이 간격 36 */
+  .search-overlay[open] {
+    gap: var(--space-36);
+  }
+
+  /* 검색어를 입력해주세요 · 검색창 — 가운데 최대 720 (좌우 16 포함) */
+  .search-overlay__field {
+    width: 100%;
+    max-width: var(--size-720);
+    margin: 0 auto;
+  }
+
+  /* 선 — 가운데 최대 720, 좌우 16 안쪽 */
+  .search-overlay__divider {
+    width: calc(100% - 2 * var(--space-16));
+    max-width: calc(var(--size-720) - 2 * var(--space-16));
+    margin: 0 auto;
+  }
+
+  /* 검색어 — 너비 616, 가운데, 사이 간격 40 + 세로선(높이 443) */
+  .search-overlay__terms {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-40);
+    width: var(--size-616);
+    margin: 0 auto;
+  }
+
+  .search-overlay__terms::before {
+    order: 1;
+    align-self: flex-start;
+    width: 0;
+    height: var(--size-443);
+    border-left: var(--border-width-1) solid var(--color-gray-100);
+    content: '';
+  }
+
+  .search-overlay__ranking {
+    flex-shrink: 0;
+    margin: 0;
+    padding-top: 0;
+  }
+
+  .search-overlay__recent {
+    display: flex;
+    order: 2;
+    flex-direction: column;
+    gap: var(--space-39);
+    font-family: var(--font-family-pretendard-gov);
+    color: var(--color-text-black);
+  }
+
+  /* 제목 + 검색어 전체삭제 — 간격 12 */
+  .search-overlay__recent-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+
+  /* 제목 — 모바일/카드타이틀 */
+  .search-overlay__recent-title {
+    margin: 0;
+    font-size: var(--mobile-card-title-font-size);
+    font-weight: var(--mobile-card-title-font-weight);
+    line-height: var(--mobile-card-title-line-height);
+    letter-spacing: var(--mobile-card-title-letter-spacing);
+    white-space: nowrap;
+  }
+
+  /* 최근 검색어 — 많이 찾은 검색어 목록과 같은 간격 16 */
+  .search-overlay__recent-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-16);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}

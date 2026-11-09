@@ -29,3 +29,23 @@
 .inner-page__divider {
   padding: 0 var(--space-16);
 }
+
+/* ───────── 데스크탑 (1280px 이상) — Figma 데스크탑 내부 화면 공통 ───────── */
+@media (min-width: 1280px) {
+  /* 데스크탑 시안에는 홈바로가기 띠가 없음 (로고가 홈으로 이동) */
+  .inner-page > .home-shortcut {
+    display: none;
+  }
+
+  /* 상단배너가 화면 맨 위에 붙고, 본문과 간격 20 */
+  .inner-page > header {
+    margin: 0 0 var(--space-20);
+  }
+
+  /* 본문은 화면이 1280px보다 넓으면 가운데 1280px 안에 */
+  .inner-page__main {
+    width: 100%;
+    max-width: var(--size-1280);
+    margin: 0 auto;
+  }
+}
